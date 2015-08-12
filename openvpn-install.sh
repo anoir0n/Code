@@ -176,8 +176,7 @@ else
 	echo "   4) NTT"
 	echo "   5) Hurricane Electric"
 	echo "   6) Yandex"
-	echo "   7) Google"
-	read -p "DNS [1-7]: " -e -i 1 DNS
+	read -p "DNS [1-6]: " -e -i 1 DNS
 	echo ""
 	echo "Finally, tell me your name for the client cert"
 	echo "Please, use one word only, no special characters"
@@ -243,8 +242,8 @@ else
 		done
 		;;
 		2)
-		sed -i 's|;push "dhcp-option DNS 208.67.222.222"|push "dhcp-option DNS 208.67.222.222"|' server.conf
-		sed -i 's|;push "dhcp-option DNS 208.67.220.220"|push "dhcp-option DNS 208.67.220.220"|' server.conf
+		sed -i 's|;push "dhcp-option DNS 8.8.8.8"|push "dhcp-option DNS 8.8.8.8"|' server.conf
+		sed -i 's|;push "dhcp-option DNS 8.8.4.4"|push "dhcp-option DNS 8.8.4.4"|' server.conf
 		;;
 		3) 
 		sed -i 's|;push "dhcp-option DNS 208.67.222.222"|push "dhcp-option DNS 4.2.2.2"|' server.conf
@@ -260,10 +259,6 @@ else
 		6) 
 		sed -i 's|;push "dhcp-option DNS 208.67.222.222"|push "dhcp-option DNS 77.88.8.8"|' server.conf
 		sed -i 's|;push "dhcp-option DNS 208.67.220.220"|push "dhcp-option DNS 77.88.8.1"|' server.conf
-		;;
-		7) 
-		sed -i 's|;push "dhcp-option DNS 8.8.8.8"|push "dhcp-option DNS 8.8.8.8"|' server.conf
-		sed -i 's|;push "dhcp-option DNS 8.8.4.4"|push "dhcp-option DNS 8.8.4.4"|' server.conf
 		;;
 	esac
 	# Listen at port 53 too if user wants that
